@@ -51,12 +51,16 @@ class Liens_sociaux(models.Model):
     status = models.BooleanField(default=False)
     date_add = models.DateTimeField(auto_now=True)
     date_update = models.DateTimeField(auto_now=True)
-    
+
+    class Meta(): 
+        verbose_name = 'Liens_sociaux' 
+        verbose_name_plural = 'Liens_sociaux'
+
     def __str__(self):
         return self.nom
     
 
-class Contacts(models.Model):
+class Contact(models.Model):
     nom = models.TextField
     email = models.CharField(max_length=200)
     messages = models.TextField()
@@ -68,7 +72,7 @@ class Contacts(models.Model):
         return self.nom
 
 
-class Banner_skills(models.Model):
+class Banner_skill(models.Model):
     image = models.FileField(upload_to="image_website")
     status = models.BooleanField(default=False)
     date_add = models.DateTimeField(auto_now=True)
@@ -77,7 +81,7 @@ class Banner_skills(models.Model):
     def __str__(self):
         return self.image 
     
-class Banner_coursses(models.Model):
+class Banner_course(models.Model):
     image = models.FileField(upload_to="image_website")
     description_image = models.CharField(max_length=255)
     status = models.BooleanField(default=False)

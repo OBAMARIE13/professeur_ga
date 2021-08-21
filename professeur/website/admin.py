@@ -33,12 +33,12 @@ class About_detailAdmin(admin.ModelAdmin):
 class Liens_sociauxAdmin(admin.ModelAdmin):
 	list_display = ('icone', 'nom', 'lien', 'date_add', 'date_update', 'status')
 
-@admin.register(models.Contacts)
-class ContactsAdmin(admin.ModelAdmin):
+@admin.register(models.Contact)
+class ContactAdmin(admin.ModelAdmin):
 	list_display = ('nom', 'email', 'messages', 'date_add', 'date_update', 'status')
 
-@admin.register(models.Banner_skills)
-class Banner_skillsAdmin(admin.ModelAdmin): 
+@admin.register(models.Banner_skill)
+class Banner_skillAdmin(admin.ModelAdmin): 
     list_display = ('view_image', 'date_add', 'date_update', 'status')
     
     def view_image(self, obj):
@@ -46,8 +46,8 @@ class Banner_skillsAdmin(admin.ModelAdmin):
     view_image.short_description = 'Apercu des images view_photo'
 
 
-@admin.register(models.Banner_coursses)
-class Banner_courssesAdmin(admin.ModelAdmin): 
+@admin.register(models.Banner_course)
+class Banner_courseAdmin(admin.ModelAdmin): 
     list_display = ('view_image', 'description_image', 'date_add', 'date_update', 'status')
     
     def view_image(self, obj):

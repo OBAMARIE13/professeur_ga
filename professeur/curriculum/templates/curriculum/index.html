@@ -118,6 +118,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="{% static 'js/parallax.js' %}"></script>
 <script type="text/javascript">
-	$('.parallax-window').parallax({imageSrc: "{%static 'images/banner.jpg' %}"});
+	$('.parallax-window').parallax({imageSrc: "{% static 'images/banner.jpg' %}"});
 </script>
 {% endblock %}
