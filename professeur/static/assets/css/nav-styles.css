@@ -1,0 +1,205 @@
+nav {
+	/* overflow: hidden; */
+	background-color: #18241c;
+	position: fixed; /* Set the navbar to fixed position */
+	top: 0; /* Position the navbar at the top of the page */
+	width: 100%; /* Full width */
+	margin-left: 0;
+	padding: 10px 0;
+	 display: flex; 
+	z-index: 10;
+}
+
+#logo {
+	color: #BFBFBF;
+	font-size: 1.5rem;
+}
+
+nav ul {
+	float: right;
+	display: flex;
+	list-style: none;
+	margin: 8px 0;
+}
+
+nav ul li {
+	margin: 0 10px;
+}
+
+nav ul a {
+	text-decoration: none;
+	color: #FFF;
+	font-size: 1rem;
+}
+
+nav ul a:hover {
+	color: #8F8F8F;
+	text-decoration: none;
+}
+
+.titre-rubrique {
+	color: #630929; 
+	font-size: 5rem; 
+	font-weight: normal;
+}
+
+#presentation-container {
+	min-height: 100%;
+	padding-bottom: 50px;
+}
+
+#presentation {
+	background-color: #FFF;
+}
+
+.photo {
+	margin-top: -210px; 
+	height: 100%;
+}
+
+.titre {
+	margin-top: -210px; 
+	padding-top: 50px;
+	height: 100%;
+}
+
+.skills-link {
+	display: inline-block;
+	text-decoration: none;
+	margin: 20px 0;
+	font-size: 1.8rem;
+	border: 1px solid #D43F52;
+	padding: 5px;
+	color: #D43F52;
+}
+
+.skills-link:hover {
+	text-decoration: none;
+	border: 1px solid #333;
+}
+
+/* BEGIN RESEARCHES SECTION */
+.colored-band {
+	background-color: #efefef;
+}
+
+#researches, #publications {
+	padding: 40px 0;
+}
+
+.res-p {
+	margin: 30px 0;
+	font-size: 1.8rem;	
+}
+/* END RESEARCHES SECTION */
+
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #6F6F6F;
+  color: white;
+  padding: 1px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown { 
+	position: relative;
+	display: none;
+	right: 0;
+	text-align: center;
+    width: 30%;
+    margin-left: 25%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  right: 0;
+  text-align: left;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	text-decoration: none;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #333;
+  color: #FFF;
+}
+
+@media (max-width: 886px) {
+  .dropdown {
+    display: inline-block;
+  }
+  #logo {
+  	width: 50%;
+  }
+  .menu {
+  	display: none;
+  }
+  nav {
+	  display: flex;
+  }
+}
+
+@media (max-width: 768px) {  
+	#logo {
+		font-size: 1rem;
+		font-weight: bold;
+	}
+}
+
+@media (max-width: 1024px) {  
+	.md-none {
+		display: none;
+	}
+	.md-margin {
+		margin-top: 200px;
+	}
+}
+
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+

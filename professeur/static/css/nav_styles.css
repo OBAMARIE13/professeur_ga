@@ -1,0 +1,21 @@
+nav {
+	background-color: #2B2B2B;
+}
+
+nav ul {
+	text-align: center;
+	width: 100%; /* largeur obligatoire pour être centré */
+}
+
+nav li {
+	display: inline;
+	padding: 20px 20px;
+}
+
+nav li:hover {
+	border-bottom: 2px solid #D43F52;
+	border-top: 2px solid #D43F52;
+}
+
+nav a { color: #ffffff; }
+nav a:hover { color: #D43F52; }
