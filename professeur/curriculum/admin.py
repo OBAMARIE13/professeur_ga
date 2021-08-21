@@ -18,3 +18,28 @@ class BiographyAdmin(admin.ModelAdmin):
 @admin.register(models.Research)
 class ResearchAdmin(admin.ModelAdmin):
 	list_display = ('domaine', 'competence', 'date_add', 'date_update', 'status')
+ 
+ 
+
+@admin.register(models.Publication)
+class PublicationAdmin(admin.ModelAdmin):
+    	list_display = ('titre', 'abstract', 'auteurs', 'date_add', 'date_update', 'status')
+
+
+@admin.register(models.About)
+class AboutAdmin(admin.ModelAdmin):
+    	list_display = ('icone', 'profession', 'description', 'date_add', 'date_update', 'status')
+
+
+@admin.register(models.About_details)
+class About_detailsAdmin(admin.ModelAdmin):
+    	list_display = ('profession', 'description_profession', 'date_add', 'date_update', 'status')
+
+@admin.register(models.Cv_header)
+class Cv_headerAdmin(admin.ModelAdmin):
+    	list_display = ('photo', 'nom', 'date_add', 'date_update', 'status')
+
+
+@admin.register(models.Background)
+class BackgroundAdmin(admin.ModelAdmin):
+    	list_display = ('titre', 'description', 'date_add', 'date_update', 'status')
