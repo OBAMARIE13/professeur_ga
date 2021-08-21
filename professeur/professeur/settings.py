@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'curriculum.apps.CurriculumConfig',
     'teaching.apps.TeachingConfig',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
