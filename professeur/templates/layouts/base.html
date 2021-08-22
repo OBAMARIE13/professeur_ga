@@ -1,4 +1,5 @@
-{% load static %} 
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -35,11 +36,11 @@
 			<div id="logo" class="col-md-4 col-xs-8">G. A. MONNEHAN, Prof.</div>
 			<ul class="col-md-8 menu">
 				<li><a href="{% url 'index' %}"><i class="fas fa-home"></i>&nbsp; Accueil</a></li>
-				<li><a href="{% url 'curriculum:index' %}"><i class="fas fa-award"></i>&nbsp; Compétences</a></li>
-				<li><a href="{% url 'curriculum:skills' %}"><i class="fas fa-file-invoice"></i>&nbsp; CV</a></li>
-				<li><a href="{% url 'teaching:courses' %}"><i class="fas fa-chalkboard-teacher"></i>&nbsp; Cours</a></li>
-				<li><a href="{% url 'authentication:login' %}"><i class="fas fa-sign-in-alt"></i>&nbsp; Connexion</a></li>
-				<li><a href="{% url 'authentication:registration' %}"><i class="fas fa-user-circle"></i>&nbsp; Inscription</a></li>
+				<li><a href="{% url 'works' %}"><i class="fas fa-award"></i>&nbsp; Compétences</a></li>
+				<li><a href="{% url 'index' %}"><i class="fas fa-file-invoice"></i>&nbsp; Publications</a></li>
+				<li><a href="{% url 'work' %}"><i class="fas fa-chalkboard-teacher"></i>&nbsp; Cours</a></li>
+				<li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>&nbsp; Connexion</a></li>
+				<li><a href="{% url 'inscription' %}"><i class="fas fa-user-circle"></i>&nbsp; Inscription</a></li>
 			</ul>
 
 			<!-- Media query -->
@@ -47,11 +48,11 @@
 				<button class="btn dropbtn"><i class="fas fa-bars"></i> Menu</button>
 				<div class="dropdown-content">
 					<a href="{% url 'index' %}"><i class="fas fa-home"></i>&nbsp; Accueil</a>
-					<a href="{% url 'curriculum:index' %}"><i class="fas fa-award"></i>&nbsp; Compétences</a>
-					<a href="{% url 'curriculum:skills' %}"><i class="fas fa-file-invoice"></i>&nbsp; CV</a>
-					<a href="{% url 'teaching:courses' %}"><i class="fas fa-chalkboard-teacher"></i>&nbsp; Cours</a>
-					<a href="{% url 'authentication:login' %}"><i class="fas fa-sign-in-alt"></i>&nbsp; Connexion</a>
-					<a href="{% url 'authentication:registration' %}"><i class="fas fa-user-circle"></i>&nbsp; Inscription</a>
+					<a href="{% url 'works' %}"><i class="fas fa-award"></i>&nbsp; Compétences</a>
+					<a href="{% url 'index' %}"><i class="fas fa-file-invoice"></i>&nbsp; Publications</a>
+					<a href="{% url 'work' %}"><i class="fas fa-chalkboard-teacher"></i>&nbsp; Cours</a>
+					<a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>&nbsp; Connexion</a>
+					<a href="{% url 'inscription' %}"><i class="fas fa-user-circle"></i>&nbsp; Inscription</a>
 				</div>
 			</div>
 		</nav>
@@ -72,7 +73,7 @@
 							<ul class="social-icon">
 								<li style="color: brown;"><a href="#" class="fa fa-facebook"></a></li>
 								<li><a href="#" class="fa fa-twitter"></a></li>
-								<li><a href="#" class="fa fa-linkedin"></a></li>
+								<li><a href="#" class="fa fa-instagram"></a></li>
 							</ul>
 						</div>
 					</div>
