@@ -24,10 +24,6 @@ class GallerieAdmin(admin.ModelAdmin):
 	view_photo.short_description = 'Apercu des images view_photo'
 
 
-@admin.register(models.About_detail)
-class About_detailAdmin(admin.ModelAdmin):
-	list_display = ('titre_profession', 'description', 'date_add', 'date_update', 'status')
-
 
 @admin.register(models.Liens_sociaux)
 class Liens_sociauxAdmin(admin.ModelAdmin):
@@ -35,7 +31,7 @@ class Liens_sociauxAdmin(admin.ModelAdmin):
 
 @admin.register(models.Contacts)
 class ContactsAdmin(admin.ModelAdmin):
-	list_display = ('nom', 'email', 'messages', 'date_add', 'date_update', 'status')
+	list_display = ('name', 'email', 'message', 'date_add', 'date_update', 'status')
 
 @admin.register(models.Banner_skills)
 class Banner_skillsAdmin(admin.ModelAdmin): 

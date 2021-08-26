@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # add application
+	'tinymce',
+    # 'drf_yasg2',
     'website.apps.WebsiteConfig',
     'authentication.apps.AuthenticationConfig',
     'curriculum.apps.CurriculumConfig',
