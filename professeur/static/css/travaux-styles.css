@@ -1,6 +1,6 @@
 nav {
 	/* overflow: hidden; */
-	background-color: #1a1c1a;
+	background-color: #333;
 	position: fixed; /* Set the navbar to fixed position */
 	top: 0; /* Position the navbar at the top of the page */
 	width: 100%; /* Full width */
@@ -38,8 +38,7 @@ nav ul a:hover {
 }
 
 .titre-rubrique {
-	/* color: #630929;  */
-	color: #286090;
+	color: #630929; 
 	font-size: 5rem; 
 	font-weight: normal;
 }
@@ -75,7 +74,7 @@ nav ul a:hover {
 	font-size: 1.8rem;
 	border: 1px solid #D43F52;
 	padding: 5px;
-	/* color: #D43F52; */
+	color: #D43F52;
 }
 
 .skills-link:hover {

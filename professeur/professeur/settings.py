@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w6oh*+pc)3r3wqf5+&cloo2y=b7r0qccvkqxsow1t!2za7ws$#'
+SECRET_KEY = 'django-insecure-)=b46b5ce7t&oin@7s%$p23*y5-u3&rx6-ab$afz@wzgizauc5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'curriculum.apps.CurriculumConfig',
     'teaching.apps.TeachingConfig',
+    'siteweb.apps.SitewebConfig',
+    'professions.apps.ProfessionsConfig',
+    'lectures.apps.LecturesConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,10 +84,21 @@ WSGI_APPLICATION = 'professeur.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bureit',
+        'USER': 'kakou',
+        'PASSWORD': 'kakou@postgr.django',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
