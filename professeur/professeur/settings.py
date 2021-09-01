@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 
 import django_heroku
 from pathlib import Path
@@ -16,18 +17,16 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)=b46b5ce7t&oin@7s%$p23*y5-u3&rx6-ab$afz@wzgizauc5'
+SECRET_KEY = 'django-insecure-w6oh*+pc)3r3wqf5+&cloo2y=b7r0qccvkqxsow1t!2za7ws$#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -38,16 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # add application
-	'tinymce',
-    # 'drf_yasg2',
     'website.apps.WebsiteConfig',
     'authentication.apps.AuthenticationConfig',
     'curriculum.apps.CurriculumConfig',
     'teaching.apps.TeachingConfig',
-    'siteweb.apps.SitewebConfig',
-    'professions.apps.ProfessionsConfig',
-    'lectures.apps.LecturesConfig',
+    'tinymce',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
@@ -80,28 +75,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'professeur.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bureit',
-        'USER': 'kakou',
-        'PASSWORD': 'kakou@postgr.django',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -121,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -135,7 +116,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -147,7 +127,7 @@ STATIC_ROOT = BASE_DIR / 'static_cdn'
 
 MEDIA_ROOT = BASE_DIR / 'media_cdn'
 
-STATICFILES_DIRS = [BASE_DIR /'static']
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

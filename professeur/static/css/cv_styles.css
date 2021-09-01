@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "edmondsans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("http://cdn.switch-company.com/medias/fonts/edmondsans-regular.woff2") format("woff2"),url("http://cdn.switch-company.com/medias/fonts/edmondsans-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "edmondsans";
+  font-style: normal;
+  font-weight: bold;
+  src: url("http://cdn.switch-company.com/medias/fonts/edmondsans-bold.woff2") format("woff2"),url("http://cdn.switch-company.com/medias/fonts/edmondsans-bold.woff") format("woff");
+}
+
+main, .cv_section { display: block; }
+
+[hidden] { display: none; }
+
+svg:not(:root) { overflow: hidden; }
+
+hr { box-sizing: content-box; height: 0; }
+
+button { color: inherit; font: inherit; margin: 0; overflow: visible; 
+  text-transform: none; -webkit-appearance: button; cursor: pointer; 
+}
+
+button[disabled] { cursor: default; }
+
+button::-moz-focus-inner { border: 0; padding: 0; }
+
+main { padding-bottom: 3.25rem; } 
+
+.icon-tab { height: 1.5rem; width: 1.5rem; } 
+
+[class^=button] {
+  -webkit-touch-callout: none;
+  background: none;
+  border-width: 0;
+  display: inline-block;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  outline-width: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+
+.accordeon [data-role=accordion] { 
+  text-align: left;
+  margin: 0 auto; 
+}
+
+.accordeon .tab button { 
+  -webkit-tap-highlight-color: rgba(0,0,0,0); 
+  position: relative;
+  background-color: #708090;/*#b75c52; */
+  border: 0; 
+  color: #fff; 
+  font-family: "edmondsans", Geneva, Verdana, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-size: 1.8rem; 
+  font-weight: normal; 
+  margin: 0; 
+  padding: 1rem 1.375rem; 
+  text-align: left; 
+  width: 100%;
+}
+
+.accordeon .tab button:after { background-color: #d7cf80; bottom: 0; content: ''; 
+  display: block; height: 0.28125rem; position: absolute; transition: width 0.5s ease; width: 0;
+}
+.accordeon .tab button:after { left: 0; }
+
+.accordeon .tab button:focus { -ms-touch-action: none; }
+
+.accordeon .tab button:focus { outline-style: none; background-color: #708090;/*#a5534a; */
+}
+.accordeon .tab button:focus:after {
+  width: 20%;
+}
+.js .accordeon .tab button[aria-expanded=true]:after {
+  width: 100%;
+}
+.js .accordeon .tab button {
+  cursor: pointer;
+}
+.js .accordeon .tab button[disabled],
+.js .accordeon .tab button[aria-disabled="true"] {
+  cursor: default;
+}
+.accordeon .tab button .icon-tab {
+  position: absolute;
+  fill: #fff;
+  top: 50%;
+  right: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+  transition: transform 0.3s;
+}
+.accordeon .tab button .dash {
+  transition: opacity 0.15s;
+}
+.accordeon .tab button[aria-expanded=true] .icon-tab {
+  -ms-transform: translateY(-50%) rotate(90deg);
+      transform: translateY(-50%) rotate(90deg);
+}
+.accordeon .tab button[aria-expanded=true] .dash {
+  opacity: 0;
+}
+.accordeon .tab {
+  margin: 0;
+}
+.accordeon .tab button {
+  display: block;
+}
+.accordeon .panel {
+  background-color: #fff;
+  overflow: hidden;
+  transition: height 0.4s;
+}
+.accordeon .panel.open {
+  height: auto;
+  display: block;
+}
+.js .accordeon .panel[aria-hidden=true] {
+  height: 0;
+  display: none;
+}
+.js .accordeon .panel[aria-hidden=false] {
+  height: auto;
+  display: block;
+}
+.accordeon .panel p {
+  padding: 1.375rem;
+  margin: 0;
+  line-height: 1.4375;
+}
+
+@media (min-width: 65.25rem) {
+  .block {
+    margin: 0 auto;
+    width: 56.25rem;
+  }
+}
+.block h1,
+.block h2,
+.block h3,
+.block h4,
+.block h5,
+.block h6 {
+  font-family: "edmondsans", Geneva, Verdana, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-weight: normal;
+}
+.block p{
+  font-size: 1.5rem;
+  line-height: 1.444444444444444;
+}
+
+
+
+
+
+
+@media (min-width: 48em) {
+  .accordeon .tab button {
+    font-size: 1.5rem;
+  }
+  .accordeon .panel p {
+    line-height: 1.75;
+  }
+}
+

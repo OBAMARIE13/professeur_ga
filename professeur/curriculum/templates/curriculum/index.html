@@ -1,0 +1,103 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'banner' %}{% endblock %}
+{% block 'main' %}
+
+<div class="parallax-window"></div>
+
+<!-- Start presentation -->
+<div id="presentation-container" class="container-fluid">
+	<section id="presentation" class="container">
+		<div class="col-md-6 photo">
+			<img src="{% static 'images/photo-home.webp' %}" style="max-height: 100%; max-width: 100%; height: auto;">
+		</div>
+		<div class="col-md-6 titre">
+			<div class="md-none" style="margin-bottom: 100px;">
+				<h1 style="font-weight: bold; font-size: 5rem;" class=" wow fadeInUp" data-wow-delay="0.6s">Professeur Monnehan</h1>
+				<h4 style="color: #FFF; font-size: 2.4rem; font-weight: normal;" class=" wow fadeInUp" data-wow-delay="0.9s">Professeur titulaire de Physique nucléaire</h4>
+			</div>
+			<p class="md-margin wow fadeInUp" style="font-size: 1.8rem;" data-wow-delay="1.5s">Un kaon est une particule (notée K) de la famille des mésons caractérisée par un nombre quantique appelé étrangeté et noté S. Les mésons étant constitués d'un nombre pair de quarks et d'antiquarks, les kaons contiennent un quark s ou un antiquark s combiné avec un quark/antiquark parmi u ou d (resp. u ou d).</p>
+			<div style="color: #D43F52; width: 100%; text-align: center;">
+				<a href="{% url 'curriculum:skills' %}" class="skills-link">Mes compétences</a>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- End presentation -->
+
+<!-- Start researches -->
+<div class="container-fluid colored-band">
+	<section id="researches" class="container">
+		<div class="col-md-4">
+			<h1 class="titre-rubrique">Champs de recherche</h1>
+		</div>
+		<div class="col-md-8">
+			{% for research in researches %}
+				<p style="padding: 10px 0;"><span style="color: #343434; font-size: 1.8rem; font-weight: bold;">{{ research.domaine }} : </span> {{ research.competence }}</p>
+				{% if not forloop.last %}<hr>{% endif %}
+			{% endfor %}
+			<div style="width: 100%; text-align: center;">
+				<a href="#" class="text-primary light-300 skills-link">Voir plus ...</a>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- End researches -->
+
+<!-- Start publication -->
+<div class="container-fluid">
+	<section id="publications" class="container">
+		<div class="col-md-4">
+			<h1 class="titre-rubrique wow fadeInUp" data-wow-delay="0.6s">Publications</h1>
+		</div>
+		<div class="col-md-8">
+
+			{% for publication in publications %}
+				<div class="paper">
+					<a href="{{ publication.lien }}">
+						<h4 style="color: #6a6a6a;">{{ publication.titre }}</h4>
+					</a>
+					<p style="padding: 10px 0;"><span style="color: #343434; font-size: 1.8rem; font-weight: bold;">Auteurs : </span> {{ publication.auteurs }}</p>
+					<p style="padding: 10px 0;"><span style="color: #343434; font-size: 1.8rem; font-weight: bold;">Abstract : </span> {{ publication.abstract }}</p>
+				</div>
+				{% if not forloop.last %}<hr>{% endif %}
+			{% endfor %}
+			<div style="width: 100%; text-align: center;" data-wow-delay="0.9s">
+				<a href="#" class="skills-link">Voir plus ...</a>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- End publication -->
+
+<!-- start contact -->
+<div id="contact" class="colored-band" style="padding-left: 30px;  padding-right: 30px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+				<address>
+					<p class="contact-title" style="color: #630929;">MES CONTACTS</p>
+					<p><i class="fa fa-phone"></i> (+225) 07 07 69 62 34</p>
+					<p><i class="fa fa-envelope"></i> Monnehan_alain@yahoo.fr</p>
+					<p><i class="fa fa-map-marker"></i> Rue 547, cocody Abidjan</p>
+				</address>
+			</div>
+			<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" >
+				<form role="form" method="post" action="#">
+					<input name="name" type="text" class="form-control" id="name" placeholder="Votre Nom">
+					<input name="email" type="email" class="form-control" id="email" placeholder="Votre Email">
+					<textarea name="message" rows="5" class="form-control" id="message" placeholder="Votre Message"></textarea>
+					<input name="send" type="submit" class="form-control" id="send" value="ENVOYER">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end contact -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'js/parallax.js' %}"></script>
+<script type="text/javascript">
+	$('.parallax-window').parallax({imageSrc: "{% static 'images/banner.jpg' %}"});
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'banner' %}{% endblock %}
+{% block 'main' %}
+
+
+    <div class='container' style="margin-top: 100px;">
+        <div style="color: #3F3F3F; text-transform: uppercase; font-size: 2rem; margin: 20px 0;">Choisissez une formation</div>
+        <hr>
+
+        <div class="accordeon" style="/*border: 1px solid green;*/">
+            <div hidden aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <symbol viewBox="0 0 24 24" id="icon-tabClosed">
+                        <path d="M7 11.5h10v1H7z" />
+                    </symbol>
+                    <symbol viewBox="0 0 24 24" id="icon-tabOpened">
+                        <path d="M11.5 7h1v10h-1z" />
+                    </symbol>
+                </svg>
+            </div>
+            <main role="main" style="/*border: 1px solid blue;*/">
+                <section class="block cv_section" style="/*border: 1px solid black; */width: 100%;">
+                    <div data-role="accordion" data-multiselectable="true">
+                        {% for training in trainings %}
+                        <h3 class="tab">
+                            <button id="tab{{ training.id }}" aria-controls="panel{{ training.id }}">{{ training.intitule }}
+                                <svg aria-hidden="true" class="icon-tab">
+                                    <use xlink:href="#icon-tabClosed" class="dash"></use>
+                                    <use xlink:href="#icon-tabOpened" class="pipe"></use>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="panel{{ training.id }}" class="panel" aria-labelledby="tab{{ training.id }}">
+                            <p>{{ training.intitule }} - {{ training.intitule }}</p>
+                            <form class="text-center" method="get" action="{% url 'teaching:training' %}">
+                                <div class="form-group col-md-6">
+                                    <input type="password" class="form-control mb-2" name="pwd" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer le mot de passe de cette formation">
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary mb-2" style="width: 100%;">Accéder à la formation</button>
+                                </div>
+                            </form>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="{% static 'js/accordion.js' %}"></script>
+    <script>
+        var accordeons = Array.from( document.querySelectorAll( '[data-role="accordion"]' ));
+        window.accordeons = accordeons.map( function( accordeon ){
+            var accordion = new window.Accordion( accordeon );
+            accordion.on( 'show', open );
+            accordion.on( 'hide', close );
+            accordion.mount();
+            return accordion;
+        });
+    </script>
+
+{% endblock %}

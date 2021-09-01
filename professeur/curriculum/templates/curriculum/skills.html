@@ -1,0 +1,118 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'banner' %}{% endblock %}
+{% block 'main' %}
+<div class="container-fluid text-center" style="background: #ebeff1;">
+{% comment %} <div class="container-fluid text-center" style="background: #f8ecdc;"> {% endcomment %}
+    <div class="col-md-1" style="word-wrap : break-word;"></div>
+
+    <div class="col-md-10" style="padding: 30px;/*border: 1px solid red; */background: #FFFFFF; margin-top: 20px;">
+        <div style="color: #3F3F3F; text-transform: uppercase; font-size: 2.5rem; margin: 20px 0;">Monnehan Georges Alain</div>
+        <div style="max-height: 500px; width: 100%; background: #ebeff1;">
+            <img src="{% static 'images/home-bg.jpg' %}" style="max-height: 300px; max-width: 100%; height: auto;">
+        </div>
+
+
+        <div style="color: #3F3F3F; text-transform: uppercase; font-size: 2rem; margin: 20px 0;">Expériences</div>
+        <hr>
+
+        <div class="accordeon" style="/*border: 1px solid green;*/">
+            <div hidden aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <symbol viewBox="0 0 24 24" id="icon-tabClosed">
+                        <path d="M7 11.5h10v1H7z" />
+                    </symbol>
+                    <symbol viewBox="0 0 24 24" id="icon-tabOpened">
+                        <path d="M11.5 7h1v10h-1z" />
+                    </symbol>
+                </svg>
+            </div>
+            <main role="main" style="/*border: 1px solid blue;*/">
+                <section class="block cv_section" style="/*border: 1px solid black; */width: 100%;">
+                    <div data-role="accordion" data-multiselectable="true">
+                        {% for experience in backgrounds_exp %}
+                        <h3 class="tab">
+                            <button id="tab{{experience.id}}" aria-controls="panel{{experience.id}}">{{ experience.titre }}
+                                <svg aria-hidden="true" class="icon-tab">
+                                    <use xlink:href="#icon-tabClosed" class="dash"></use>
+                                    <use xlink:href="#icon-tabOpened" class="pipe"></use>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="panel{{experience.id}}" class="panel" aria-labelledby="tab{{experience.id}}">
+                            <p>{{experience.date_debut}} - {{experience.date_fin}}</p>
+                            <p>{{experience.description}}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </main>
+        </div>
+
+
+
+
+
+        <div style="color: #3F3F3F; text-transform: uppercase; font-size: 2rem; margin: 20px 0;">Activtés</div>
+        <hr>
+
+        <div class="accordeon" style="/*border: 1px solid green;*/">
+            {% comment %} <div hidden aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <symbol viewBox="0 0 24 24" id="icon-tabClosed">
+                        <path d="M7 11.5h10v1H7z" />
+                    </symbol>
+                    <symbol viewBox="0 0 24 24" id="icon-tabOpened">
+                        <path d="M11.5 7h1v10h-1z" />
+                    </symbol>
+                </svg>
+            </div> {% endcomment %}
+            <main role="main" style="/*border: 1px solid blue;*/">
+                <section class="block cv_section" style="/*border: 1px solid black; */width: 100%;">
+                    <div data-role="accordion" data-multiselectable="true">
+                        {% for activity in backgrounds_act %}
+                        <h3 class="tab">
+                            <button id="tab{{activity.id}}" aria-controls="panel{{activity.id}}">{{activity.titre}}
+                                <svg aria-hidden="true" class="icon-tab">
+                                    <use xlink:href="#icon-tabClosed" class="dash"></use>
+                                    <use xlink:href="#icon-tabOpened" class="pipe"></use>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="panel{{ activity.id }}" class="panel" aria-labelledby="tab{{activity.id}}">
+                            <p>{{ activity.date_debut }} - {{ activity.date_fin }}</p>
+                            <p>{{ activity.description | safe }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </main>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="{% static 'js/accordion.js' %}"></script>
+        <script>
+            var accordeons = Array.from( document.querySelectorAll( '[data-role="accordion"]' ));
+            window.accordeons = accordeons.map( function( accordeon ){
+                var accordion = new window.Accordion( accordeon );
+                accordion.on( 'show', open );
+                accordion.on( 'hide', close );
+                accordion.mount();
+                return accordion;
+            });
+        </script>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+{% endblock %}
