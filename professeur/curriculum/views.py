@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from curriculum.models import Background, Publication, Research
 from teaching.models import Discipline
+from website import models as models_website
 
 context = {}
 
@@ -11,6 +12,10 @@ def index(request):
 
     context['publications'] = publications
     context['researches'] = researches
+
+    site = models_website.Siteweb.objects.filter(status=True).first
+
+
     return render(request, 'curriculum/index.html', context)
 
 

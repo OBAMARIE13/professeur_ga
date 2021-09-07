@@ -24,14 +24,9 @@ class GallerieAdmin(admin.ModelAdmin):
 	view_photo.short_description = 'Apercu des images view_photo'
 
 
-@admin.register(models.About_detail)
-class About_detailAdmin(admin.ModelAdmin):
-	list_display = ('titre_profession', 'description', 'date_add', 'date_update', 'status')
-
-
 @admin.register(models.Liens_sociaux)
 class Liens_sociauxAdmin(admin.ModelAdmin):
-	list_display = ('icone', 'nom', 'lien', 'date_add', 'date_update', 'status')
+	list_display = ('icone', 'lien', 'date_add', 'date_update', 'status')
 
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):
@@ -53,3 +48,9 @@ class Banner_courseAdmin(admin.ModelAdmin):
     def view_image(self, obj):
         return mark_safe(f'<img src="{obj.image.url}" style="height:80px; width:130px">')
     view_image.short_description = 'Apercu des images view_photo'
+
+
+@admin.register(models.Siteweb)
+class SitewebAdmin(admin.ModelAdmin):
+	list_display = ('nom', 'phone', 'email', 'adresse', 'date_add', 'date_update', 'status')
+	date_hierarchy = 'date_add'

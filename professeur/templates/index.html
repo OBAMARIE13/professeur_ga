@@ -8,9 +8,9 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8 wow fadeIn" data-wow-delay="0.9s">
-				<h1>Professeur MONNEHAN</h1>
-				<h2 class="rotate">Directeur général de l'ARSN &AMP; ,Professeur titulaire de Physique nucléaire</h2>
-				<p class="citation">“La science peut mener à la découverte de l'énergie atomique mais elle ne peut pas nous préserver d'une catastrophe nucléaire.”</p>
+				<h1>{{banner.nom}}</h1>
+				<h2 class="rotate">{{banner.profession_un}} &AMP; ,{{banner.profession_deux}}</h2>
+				<p class="citation">{{banner.citation}}</p>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
@@ -28,29 +28,19 @@
         </div>    
                 
         <div class="row">
+		{% for about in abouts %}
 			<div class="col-xs-6 wow fadeInUp" data-wow-delay="0.6s">
 				<div class="media">
 					<div class="media-object media-left">
-						<i class="fas fa-sitemap"></i>
+						<i class="{{about.icone}}"></i>
 					</div>
 					<div class="media-body">
-						<h3 class="media-heading" style="color: #630929;">	Directeur Général de l'ARSN</h3>
-						<p>Un directeur est une personne qui dirige une entreprise, une organisation ou une institution, gouvernementale ou non (ou a une part dans leur direction). Le directeur est le plus souvent salarié, contrairement au président qui est plutôt mandataire social. Directeur était aussi en France, entre 1795 et 1799, le titre porté par les cinq membres du Directoire, détenteurs de pouvoir exécutif.</p>
+						<h3 class="media-heading" style="color: #630929;">	{{about.profession}}</h3>
+						<p>{{about.description|safe}}</p>
 					</div>
 				</div>
 			</div>
-                    
-			<div class="col-xs-6 wow fadeInUp" data-wow-delay="0.6s"></div>
-				<div class="media">
-					<div class="media-object media-left">
-						<i class="fas fa-chalkboard-teacher"></i>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading" style="color: #630929;">Professeur titulaire en Physique nucléaire</h3>
-						<p>Un enseignant est une personne chargée de transmettre des connaissances ou méthodes de raisonnement à autrui dans le cadre d'une formation générale ou d'une formation spécifique à une matière, un domaine ou une discipline scolaire. Le terme « enseignant » désigne la personne qui enseigne aux élèves (en primaire et secondaire). Le terme « professeur » désigne dans l'enseignement supérieur le grade le plus élevé d'enseignement, dans une hiérarchie comprenant les stades successifs d'assistant, maître-assistant et maître de conférences2 (au cégep et à l'université).</p>
-					</div>
-				</div>
-			</div>
+        {% endfor %}
         </div>
 	</div>
 </div>
@@ -65,16 +55,16 @@
 					<h2 style="color: #630929;">LES DETAILS DE MES INFORMATIONS PERSONNELLES</h2>
 				</div>
 				<div style="display: flex;">
-					<div class="col-xs-6">
-						<h4 style="color: #630929;">Directeur Général de l'ARSN</h4>
-						<p>Doctorat de l'Universite Louis Pasteur, Strasbourg,</p>
-						<p> France.Physique Nucleaire : Reactions nucleaires entre ions lourds legers. 1987 - Present PGEC : Post-Graduate Educational Course IAEA Rabat (Morocco) 05 october to 10 december 1998. Enseignant-chercheur de Physique Nucléaire à l'Université FHB depuis 1987 Enseignant-chercheur en Radioprotection depuis 2000 Expert en Radioprotection depuis 2000 Spécialiste en Sûreté et Sécurité radiologiques et nucléaires</p>
-					</div>
+					{% for about in about_detail %}
+						<div class="col-xs-6">
+							<h4 style="color: #630929;">{{about.profession}}</h4>
+							<p>{{about.description_profession|safe}}</p>
+
+						</div>
+					{% endfor %}	
+					
+					
 						
-					<div class="col-xs-6">
-						<h4 style="color: #630929;">Professeur titulaire en Physique nucléaire</h4>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -89,51 +79,21 @@
 			<div class="col-md-12">
 				<h2 class="wow bounce" style="color: #630929;">MA GALLERIE</h2>
 			</div>
-			<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-				<div class="portfolio-thumb">
-					<img src="{% static 'images/th.jpg' %}" class="img-responsive" alt="portfolio img">
-					<div class="portfolio-overlay">
-						<h4>Physique Nucléaire</h4>
-						<h5>Pr.Monnehan</h5>
+
+			{% for photos in galleries %}
+				<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
+					<div class="portfolio-thumb">
+						<img src="{{ photos.photo.url }}" class="img-responsive" alt="portfolio img">
+						<div class="portfolio-overlay">
+							<h4>{{ photos.nom }}</h4>
+							<h5>{{ photos.description }}</h5>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-				<div class="portfolio-thumb">
-					<img src="{% static 'images/Prof_Monnehan.jpg' %}" class="img-responsive" alt="portfolio img">
-					<div class="portfolio-overlay">
-						<h4>Pr_Monnehan</h4>
-						<h5>AuthorPr.Monnehan</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-				<div class="portfolio-thumb">
-					<img src="{% static 'images/Prof_Monnehan.jpg' %}" class="img-responsive" alt="portfolio img">
-					<div class="portfolio-overlay">
-						<h4>Monnehan</h4>
-						<h5>Pr.Monnehan</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-				<div class="portfolio-thumb">
-					<img src="{% static 'images/téléchargement.jpeg' %}" class="img-responsive" alt="portfolio img">
-					<div class="portfolio-overlay">
-						<h4>Monnehan</h4>
-						<h5>Pr.Monnehan</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-				<div class="portfolio-thumb">
-					<img src="{% static 'images/th.jpg' %}" class="img-responsive" alt="portfolio img">
-					<div class="portfolio-overlay">
-						<h4>Monnehan</h4>
-						<h5>Pr.Monnehan</h5>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
+			
+			
+			
 		</div>
 	</div>
 </div>
@@ -146,9 +106,9 @@
 			<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
 				<address>
 					<p class="contact-title" style="color: #630929;">MES CONTACTS</p>
-					<p><i class="fa fa-phone"></i> (+225) 07 07 69 62 34</p>
-					<p><i class="fa fa-envelope"></i> Monnehan_alain@yahoo.fr</p>
-					<p><i class="fa fa-map-marker"></i> Rue 547, cocody Abidjan</p>
+					<p><i class="fa fa-phone"></i> {{siteweb.phone}}</p>
+					<p><i class="fa fa-envelope"></i> {{siteweb.email}}</p>
+					<p><i class="fa fa-map-marker"></i> {{siteweb.adresse}}</p>
 				</address>
 			</div>
 			<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" >
@@ -157,7 +117,7 @@
 					<input name="name" type="text" class="form-control" id="name" placeholder="Votre Nom"    v-model='name'>
 					<input name="email" type="email" class="form-control" id="email" placeholder="Votre Email"    v-model='email'>
 					<textarea name="message" rows="5" class="form-control" id="message" placeholder="Votre Message"    v-model='message'></textarea>
-					<input name="send" type="submit" class="form-control" id="form-submit" value="ENVOYER">
+					<input name="send" type="submit" @click.prevent="postData" class="form-control" id="form-submit" value="ENVOYER">
 				</form>
 			</div>
 		</div>

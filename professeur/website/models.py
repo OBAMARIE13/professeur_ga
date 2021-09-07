@@ -27,20 +27,11 @@ class Gallerie(models.Model):
         return self.nom
 
 
-class About_detail(models.Model):
-    titre_profession = models.CharField(max_length=200)
-    description = models.TextField()
-    status = models.BooleanField(default=False)
-    date_add = models.DateTimeField(auto_now=True)
-    date_update = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.titre_profession
 
 
 class Liens_sociaux(models.Model):
-    icone = models.TextField
-    nom = models.CharField(max_length=200)
+    icone = models.CharField(max_length=200)
     lien = models.TextField()
     status = models.BooleanField(default=False)
     date_add = models.DateTimeField(auto_now=True)
@@ -51,7 +42,7 @@ class Liens_sociaux(models.Model):
         verbose_name_plural = 'Liens_sociaux'
 
     def __str__(self):
-        return self.nom
+        return self.icone
 
 
 class Contact(models.Model):
@@ -85,3 +76,16 @@ class Banner_course(models.Model):
 
     def __str__(self):
         return self.description_image
+
+class Siteweb(models.Model):
+	nom = models.CharField(max_length=255)
+	phone = models.CharField(max_length=255)
+	email = models.EmailField()
+	adresse = models.CharField(max_length=255)
+	date_add = models.DateTimeField(auto_now_add=True)
+	date_update = models.DateTimeField(auto_now=True)
+	status = models.BooleanField(default=True)
+
+	class Meta():
+		verbose_name = 'Siteweb'
+		verbose_name_plural = 'Sitewebs'

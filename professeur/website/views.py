@@ -1,13 +1,19 @@
 import re
 from django.shortcuts import render
 from . import models
+from curriculum import models as models_curriculum
 from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
 
 def index(request):
+    siteweb = models.Siteweb.objects.filter(status=True).first
+    abouts = models_curriculum.About.objects.filter(status=True)
+    about_detail = models_curriculum.About_details.objects.filter(status=True)
+    galleries = models.Gallerie.objects.filter(status=True)
     banner = models.Banner.objects.filter(status=True).first
+    sociaux = models.Liens_sociaux.objects.filter(status=True)
     return render(request, 'index.html', locals())
 
 @csrf_exempt
