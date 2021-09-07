@@ -153,10 +153,11 @@
 			</div>
 			<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" >
 				<form role="form" method="post" action="#">
-					<input name="name" type="text" class="form-control" id="name" placeholder="Votre Nom">
-					<input name="email" type="email" class="form-control" id="email" placeholder="Votre Email">
-					<textarea name="message" rows="5" class="form-control" id="message" placeholder="Votre Message"></textarea>
-					<input name="send" type="submit" class="form-control" id="send" value="ENVOYER">
+				 {% csrf_token %}
+					<input name="name" type="text" class="form-control" id="name" placeholder="Votre Nom"    v-model='name'>
+					<input name="email" type="email" class="form-control" id="email" placeholder="Votre Email"    v-model='email'>
+					<textarea name="message" rows="5" class="form-control" id="message" placeholder="Votre Message"    v-model='message'></textarea>
+					<input name="send" type="submit" class="form-control" id="form-submit" value="ENVOYER">
 				</form>
 			</div>
 		</div>
@@ -172,4 +173,129 @@
 <div class="text-center">
 	<a href="{% url 'authentication:login' %}">Login</a>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<script type="text/javascript">
+        $(document).ready(function() {
+
+            // navigation click actions 
+            $('.scroll-link').on('click', function(event){
+                event.preventDefault();
+                var sectionID = $(this).attr("data-id");
+                scrollToID('#' + sectionID, 750);
+            });
+            // scroll to top action
+            $('.scroll-top').on('click', function(event) {
+                event.preventDefault();
+                $('html, body').animate({scrollTop:0}, 'slow');         
+            });
+            // mobile nav toggle
+            $('#nav-toggle').on('click', function (event) {
+                event.preventDefault();
+                $('#main-nav').toggleClass("open");
+            });
+        });
+        // scroll function
+        function scrollToID(id, speed){
+            var offSet = 0;
+            var targetOffset = $(id).offset().top - offSet;
+            var mainNav = $('#main-nav');
+            $('html,body').animate({scrollTop:targetOffset}, speed);
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
+            }
+        }
+        if (typeof console === "undefined") {
+            console = {
+                log: function() { }
+            };
+        }
+    </script>
+
+    <script>
+      new Vue(
+        {
+          el:'#contact',
+          data:{
+            name:'',
+            email:'',
+            message:'',
+            url:"{% url 'checkup' %}"
+          },
+          methods:{
+            postData(){
+              if (this.name === '' || this.email === '' || this.message === ''){
+                swal.fire({
+                  icon:'error',
+                  text:'Veuillez remplir les champs vides',
+                  showConfirmButton:false,
+                  timer:2000,
+                })
+              }
+              else if (!/[A-Za-z'éèöïäëû ]+/.test(this.name)){
+                swal.fire({
+                  icon:'error',
+                  text:'Veuillez saisir un nom valide',
+                  showConfirmButton:false,
+                  timer:2000,
+                })
+              }
+              else if (!/(\w\.?)+@(\w\.?)+\.[A-Za-z]{2,3}/.test(this.email)){
+                swal.fire({
+                  icon:'error',
+                  text:'Veuillez saisir un email valide',
+                  showConfirmButton:false,
+                  timer:2000,
+                })
+              }
+              else{
+                axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                axios.defaults.xsrfCookieName = 'csrftoken'
+                
+                let form = new FormData()
+
+                form.append('name', this.name)
+                form.append('email', this.email)
+                form.append('message', this.message)
+                
+                axios.post(this.url, form).then((response) => {
+                  if (response.data.success){
+                    swal.fire({
+                      icon:'success',
+                      text:response.data.text,
+                      showConfirmButton:false,
+                      timer:2000,
+                    }).then(()=>{
+                      window.location.reload()
+                    })
+                  }
+                  else {
+                    swal.fire({
+                      icon:'error',
+                      text:response.data.text,
+                      showConfirmButton:false,
+                      timer:2000,
+                    })
+                  }
+                }).catch((e) => {
+                  console.log(e)
+                })
+                
+              }
+            }
+          },
+          delimiters: ['%{', '}']
+        }
+      )
+    </script>
+
+
+
 {% endblock %}

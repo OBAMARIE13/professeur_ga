@@ -6,4 +6,6 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('curriculum/', include('curriculum.urls')),
     path('teaching/', include('teaching.urls')),
+    path('checkup', views.checkup, name='checkup')
+    
 ]

@@ -55,9 +55,9 @@ class Liens_sociaux(models.Model):
 
 
 class Contact(models.Model):
-    nom = models.TextField
+    name = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
-    messages = models.TextField()
+    message = models.TextField()
     status = models.BooleanField(default=False)
     date_add = models.DateTimeField(auto_now=True)
     date_update = models.DateTimeField(auto_now=True)

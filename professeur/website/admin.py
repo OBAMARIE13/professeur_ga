@@ -35,7 +35,7 @@ class Liens_sociauxAdmin(admin.ModelAdmin):
 
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):
-	list_display = ('nom', 'email', 'messages', 'date_add', 'date_update', 'status')
+	list_display = ('name', 'email', 'message', 'date_add', 'date_update', 'status')
 
 @admin.register(models.Banner_skill)
 class Banner_skillAdmin(admin.ModelAdmin): 
