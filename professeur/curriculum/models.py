@@ -12,7 +12,7 @@ class Biography(models.Model):
     photo = models.FileField(upload_to='image_curriculum')
     nom = models.CharField(max_length=200)
     titre = models.CharField(max_length=200)
-    presentation = models.CharField(max_length=255)
+    presentation = models.TextField()
     date_add = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
